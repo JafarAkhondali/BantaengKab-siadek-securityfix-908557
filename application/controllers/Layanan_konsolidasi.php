@@ -26,7 +26,26 @@ class Layanan_konsolidasi extends Admin
 	{
 		$this->is_allowed('Layananan_Konsolidasi');
 
-		$this->data['pagination'] = $this->pagination($config);
+		$data = array(
+		"token" => "9876543210",
+		"user" => "infokom",
+		
+	);
+	 $ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, 'http://10.73.3.200:8182/silacak/public/api/v1/layanan/konsolidasi');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/json')); 
+	$result = curl_exec($ch);
+	$respon = json_decode($result,true);
+
+		$this->data['layanan_konsolidasis'] = $respon['0']['response']['data'];
+		// return $respon['0']['response']['data'];
+		$this->data['layanan_konsolidasi_counts'] = '10';
+		// $this->data['pagination'] = $this->pagination($config);
+
+		// $this->data['pagination'] = $this->pagination($config);
 
 		$this->template->title('Layanan Konsolidasi');
 		$this->render('modul/layanan/layanan_konsolidasi');

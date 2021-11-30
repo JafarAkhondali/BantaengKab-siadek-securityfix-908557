@@ -42,7 +42,7 @@ class Layanan_umum extends Admin
 
 		$this->data['layanan_umums'] = $respon['0']['response']['data'];
 		// return $respon['0']['response']['data'];
-		$this->data['layanan_umum_counts'] = '20';
+		$this->data['layanan_umum_counts'] = '10';
 		// $this->data['pagination'] = $this->pagination($config);
 
 		$this->template->title('Layanan Umum');

@@ -7,7 +7,7 @@ function domo(){
  
    // Binding keys
    $('*').bind('keydown', 'Ctrl+a', function assets() {
-       window.location.href = BASE_URL + '/Posyandu/add';
+       window.location.href = BASE_URL + '/layanan_konsolidasi/add';
        return false;
    });
 
@@ -43,11 +43,11 @@ jQuery(document).ready(domo);
                   <!-- Add the bg color to the header using any of the bg-* classes -->
                   <div class="widget-user-header ">
                      <!--<div class="row pull-right">-->
-                     <!--   <?php is_allowed('posyandu_add', function(){?>-->
-                     <!--   <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="Tambah Data  (Ctrl+a)" href="<?=  site_url('posyandu/add'); ?>"><i class="fa fa-plus-square-o" ></i> Tambah Data</a>-->
+                     <!--   <?php is_allowed('layanan_konsolidasi_add', function(){?>-->
+                     <!--   <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="Tambah Data  (Ctrl+a)" href="<?=  site_url('layanan_konsolidasi/add'); ?>"><i class="fa fa-plus-square-o" ></i> Tambah Data</a>-->
                      <!--   <?php }) ?>-->
-                     <!--   <?php is_allowed('posyandu_export', function(){?>-->
-                     <!--   <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> XLS" href="<?= site_url('posyandu/export'); ?>"><i class="fa fa-file-excel-o" ></i></a>-->
+                     <!--   <?php is_allowed('layanan_konsolidasi_export', function(){?>-->
+                     <!--   <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> XLS" href="<?= site_url('layanan_konsolidasi/export'); ?>"><i class="fa fa-file-excel-o" ></i></a>-->
                      <!--   <?php }) ?>-->
                        
                      <!--</div>-->
@@ -56,10 +56,10 @@ jQuery(document).ready(domo);
                      </div>
                      <!-- /.widget-user-image -->
                      <h3 class="widget-user-username"><b>Layanan Konsolidasi</b></h3>
-                     <h5 class="widget-user-desc"><?= cclang('list_all', ['Layanan']); ?>  <i class="label bg-yellow"><?= $posyandu_counts; ?>  <?= cclang('items'); ?></i></h5>
+                     <h5 class="widget-user-desc"><?= cclang('list_all', ['Layanan']); ?>  <i class="label bg-yellow"><?= $layanan_konsolidasi_counts; ?>  <?= cclang('items'); ?></i></h5>
                   </div>
                 
-                  <form name="form_posyandu" id="form_posyandu" action="<?= base_url('posyandu/index'); ?>">
+                  <form name="form_layanan_konsolidasi" id="form_layanan_konsolidasi" action="<?= base_url('layanan_konsolidasi/index'); ?>">
                     <br>
                   <div class="table-responsive"> 
                   <table class="table table-bordered table-striped dataTable">
@@ -75,30 +75,22 @@ jQuery(document).ready(domo);
                             <th style="text-align:center" width="20%">Waktu Permohonan</th>
                         </tr>
                      </thead>
-                     <tbody id="tbody_posyandu">
-                     <?php foreach($posyandus as $posyandu): ?>
+                     <tbody id="tbody_layanan_konsolidasi">
+                     <?php foreach($layanan_konsolidasis as $layanan_konsolidasi): ?>
                         <tr>
                            <td width="5">
-                              <input type="checkbox" class="flat-red check" name="id[]" value="<?= $posyandu->id; ?>">
+                              <input type="checkbox" class="flat-red check" name="id[]" value="<?= $layanan_konsolidasi['no']; ?>">
                            </td>
                            
-                           <td><?= _ent($posyandu->posyandu_nama); ?></td> 
-                           <td><?= _ent($posyandu->alamat); ?></td>
-                            <td><?= _ent($posyandu->alamat); ?></td> 
-                           <td width="200">
-                              <?php is_allowed('posyandu_view', function() use ($posyandu){?>
-                              <a href="<?= site_url('posyandu/view/' . $posyandu->id); ?>" title="Lihat" class="label-default"><i class="fa fa-newspaper-o"></i> 
-                              <?php }) ?>
-                              <?php is_allowed('posyandu_update', function() use ($posyandu){?>
-                              <a href="<?= site_url('posyandu/edit/' . $posyandu->id); ?>" title="Ubah" class="label-default"><i class="fa fa-edit "></i> </a>
-                              <?php }) ?>
-                              <?php is_allowed('posyandu_delete', function() use ($posyandu){?>
-                              <a href="javascript:void(0);" data-href="<?= site_url('posyandu/delete/' . $posyandu->id); ?>" title="Hapus" class="label-default remove-data"><i class="fa fa-close" style="color: red"></i> </a>
-                               <?php }) ?>
-                           </td>
+                           <td style="text-align:center"><?= _ent($layanan_konsolidasi['no']); ?></td> 
+                           <td style="text-align:center"><?= _ent($layanan_konsolidasi['alasan_konsolidasi']); ?></td>
+                            <td style="text-align:center"><?= _ent($layanan_konsolidasi['nik']); ?></td> 
+                            <td style="text-align:center"><?= _ent($layanan_konsolidasi['nama_lengkap']); ?></td> 
+                             <td style="text-align:center"><?php $date_create = date_create($layanan_konsolidasi['waktu_permohonan']); echo date_format($date_create,"d/m/Y"); ?></td>
+                           
                         </tr>
                       <?php endforeach; ?>
-                      <?php if ($posyandu_counts == 0) :?>
+                      <?php if ($layanan_konsolidasi_counts == 0) :?>
                          <tr>
                            <td colspan="100">
                            API Dalam Proses Pengembangan
