@@ -91,7 +91,6 @@ jQuery(document).ready(domo);
                             <td style="text-align:center"><?= _ent($depag['pria_nama_lengkap']); ?></td> 
                             <td style="text-align:center"><?= _ent($depag['wanita_nik']); ?></td> 
                             <td style="text-align:center"><?= _ent($depag['wanita_nama_lengkap']); ?></td> 
-                            <td style="text-align:center"><?= _ent($depag['waktu']); ?></td> 
                             <td style="text-align:center"><?php $date_create = date_create($depag['waktu']); echo date_format($date_create,"d/m/Y"); ?></td>
                             <td style="text-align:center">-</td> 
                           
