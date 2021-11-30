@@ -48,7 +48,7 @@ class Layanan_konsolidasi extends Admin
 		// $this->data['pagination'] = $this->pagination($config);
 
 		$this->template->title('Layanan Konsolidasi');
-		$this->render('modul/layanan/layanan_konsolidasi');
+		$this->render('modul/layanan/layanan_konsolidasi',$this->data);
 	}
 	
 
