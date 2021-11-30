@@ -68,11 +68,11 @@ jQuery(document).ready(domo);
                            <th width="7%">
                             <input type="checkbox" class="flat-red toltip" id="check_all" name="check_all" title="check all">
                            </th>
-                           <th style="text-align:center" width="10%">No</th>
-                           <th style="text-align:center">Jenis Layanan</th>
-                           <th style="text-align:center" width="30%">Nik</th>
-                           <th style="text-align:center" width="30%">Nama Lengkap</th>
-                            <th style="text-align:center" width="20%">Status</th>
+                           <th style="text-align:center" width="7%">No</th>
+                           <th style="text-align:center" width="20%">Jenis Layanan</th>
+                           <th style="text-align:center" width="20%">Nik</th>
+                           <th style="text-align:center" width="20%">Nama Lengkap</th>
+                            <th style="text-align:center" width="10%">Status</th>
                             <th style="text-align:center" width="20%">Waktu Permohonan</th>
                         </tr>
                      </thead>
@@ -83,12 +83,12 @@ jQuery(document).ready(domo);
                               <input type="checkbox" class="flat-red check" name="id[]" value="<?= $layanan_umum['no']; ?>">
                            </td>
                            
-                           <td><?= _ent($layanan_umum['no']); ?></td> 
-                           <td><?= _ent($layanan_umum['jenis_layanan']); ?></td>
-                            <td><?= _ent($layanan_umum['nik']); ?></td> 
-                           <td ><?= _ent($layanan_umum['nama_lengkap']); ?> </td>
-                           <td >ada </td>
-                           <td > ada</td>
+                           <td style="text-align:center"><?= _ent($layanan_umum['no']); ?></td> 
+                           <td style="text-align:center"><?= _ent($layanan_umum['jenis_layanan']); ?></td>
+                            <td style="text-align:center"><?= _ent($layanan_umum['nik']); ?></td> 
+                           <td style="text-align:center"><?= _ent($layanan_umum['nama_lengkap']); ?> </td>
+                           <td style="text-align:center">ada </td>
+                           <td style="text-align:center"><?php echo date_format($layanan_umum['waktu_permohonan'],"d/m/Y"); ?></td>
                         </tr>
                       <?php endforeach; ?>
                       <?php if ($layanan_umum_counts == 0) :?>
