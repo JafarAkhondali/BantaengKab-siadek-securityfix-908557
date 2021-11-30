@@ -79,7 +79,7 @@ jQuery(document).ready(domo);
                         </tr>
                      </thead>
                      <tbody id="tbody_depag">
-                     <?php foreach($depags as $depag): ?>
+                     <?php foreach($layanan_depags as $depag): ?>
                         <tr>
                            <td width="5">
                               <input type="checkbox" class="flat-red check" name="id[]" value="<?= $depag['no']; ?>">
