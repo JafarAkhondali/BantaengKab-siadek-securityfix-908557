@@ -38,6 +38,8 @@ class Layanan_depag extends Admin
 	{
 		$this->is_allowed('posyandu_view');
 
+		
+
 		$this->data['posyandu'] = $this->model_posyandu->join_avaiable()->filter_avaiable()->find($id);
 
 		$this->template->title('Posyandu Detail');
