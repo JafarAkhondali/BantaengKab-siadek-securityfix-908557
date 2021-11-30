@@ -80,7 +80,7 @@ jQuery(document).ready(domo);
                      <?php foreach($layanan_umums as $layanan_umum): ?>
                         <tr>
                            <td width="5">
-                              <input type="checkbox" class="flat-red check" name="id[]" value="<?= $layanan_umum->id; ?>">
+                              <input type="checkbox" class="flat-red check" name="id[]" value="<?= $layanan_umum->no; ?>">
                            </td>
                            
                            <td><?= _ent($layanan_umum->no); ?></td> 
