@@ -56,7 +56,7 @@ jQuery(document).ready(domo);
                      </div>
                      <!-- /.widget-user-image -->
                      <h3 class="widget-user-username"><b>Layanan Depag</b></h3>
-                     <h5 class="widget-user-desc"><?= cclang('list_all', ['Layanan']); ?>  <i class="label bg-yellow"><?= $depag_counts; ?>  <?= cclang('items'); ?></i></h5>
+                     <h5 class="widget-user-desc"><?= cclang('list_all', ['Layanan']); ?>  <i class="label bg-yellow"><?= $layanan_depag_counts; ?>  <?= cclang('items'); ?></i></h5>
                   </div>
                 
                   <form name="form_depag" id="form_depag" action="<?= base_url('depag/index'); ?>">
@@ -96,7 +96,7 @@ jQuery(document).ready(domo);
                           
                         </tr>
                       <?php endforeach; ?>
-                      <?php if ($depag_counts == 0) :?>
+                      <?php if ($layanan_depag_counts == 0) :?>
                          <tr>
                            <td colspan="100">
                            API Dalam Proses Pengembangan
