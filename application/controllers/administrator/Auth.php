@@ -50,16 +50,16 @@ class Auth extends Admin
  
         $status= json_decode($response, true);
  
- if($status['success'])	{	
+//  if($status['success'])	{	
      if ($this->aauth->login($this->input->post('username'), $this->input->post('password'), $this->input->post('remember'))) 
 			{   
 				redirect('administrator/pusatdata','refresh');
 			} else {
 				$data['error'] = $this->aauth->print_errors(TRUE);
 			}
- }  else{
-            	set_message('Sorry Google Recaptcha Unsuccessful!!', 'danger');
-        }
+//  }  else{
+//             	set_message('Sorry Google Recaptcha Unsuccessful!!', 'danger');
+//         }
 		} else {
 			$data['error'] = validation_errors();
 		}
