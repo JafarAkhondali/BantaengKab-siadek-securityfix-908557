@@ -7,7 +7,7 @@ function domo(){
  
    // Binding keys
    $('*').bind('keydown', 'Ctrl+a', function assets() {
-       window.location.href = BASE_URL + '/Posyandu/add';
+       window.location.href = BASE_URL + '/depag/add';
        return false;
    });
 
@@ -43,11 +43,11 @@ jQuery(document).ready(domo);
                   <!-- Add the bg color to the header using any of the bg-* classes -->
                   <div class="widget-user-header ">
                      <!--<div class="row pull-right">-->
-                     <!--   <?php is_allowed('posyandu_add', function(){?>-->
-                     <!--   <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="Tambah Data  (Ctrl+a)" href="<?=  site_url('posyandu/add'); ?>"><i class="fa fa-plus-square-o" ></i> Tambah Data</a>-->
+                     <!--   <?php is_allowed('depag_add', function(){?>-->
+                     <!--   <a class="btn btn-flat btn-success btn_add_new" id="btn_add_new" title="Tambah Data  (Ctrl+a)" href="<?=  site_url('depag/add'); ?>"><i class="fa fa-plus-square-o" ></i> Tambah Data</a>-->
                      <!--   <?php }) ?>-->
-                     <!--   <?php is_allowed('posyandu_export', function(){?>-->
-                     <!--   <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> XLS" href="<?= site_url('posyandu/export'); ?>"><i class="fa fa-file-excel-o" ></i></a>-->
+                     <!--   <?php is_allowed('depag_export', function(){?>-->
+                     <!--   <a class="btn btn-flat btn-success" title="<?= cclang('export'); ?> XLS" href="<?= site_url('depag/export'); ?>"><i class="fa fa-file-excel-o" ></i></a>-->
                      <!--   <?php }) ?>-->
                        
                      <!--</div>-->
@@ -56,10 +56,10 @@ jQuery(document).ready(domo);
                      </div>
                      <!-- /.widget-user-image -->
                      <h3 class="widget-user-username"><b>Layanan Depag</b></h3>
-                     <h5 class="widget-user-desc"><?= cclang('list_all', ['Layanan']); ?>  <i class="label bg-yellow"><?= $posyandu_counts; ?>  <?= cclang('items'); ?></i></h5>
+                     <h5 class="widget-user-desc"><?= cclang('list_all', ['Layanan']); ?>  <i class="label bg-yellow"><?= $depag_counts; ?>  <?= cclang('items'); ?></i></h5>
                   </div>
                 
-                  <form name="form_posyandu" id="form_posyandu" action="<?= base_url('posyandu/index'); ?>">
+                  <form name="form_depag" id="form_depag" action="<?= base_url('depag/index'); ?>">
                     <br>
                   <div class="table-responsive"> 
                   <table class="table table-bordered table-striped dataTable">
@@ -78,30 +78,25 @@ jQuery(document).ready(domo);
                             <th style="text-align:center" width="20%">Status</th>
                         </tr>
                      </thead>
-                     <tbody id="tbody_posyandu">
-                     <?php foreach($posyandus as $posyandu): ?>
+                     <tbody id="tbody_depag">
+                     <?php foreach($depags as $depag): ?>
                         <tr>
                            <td width="5">
-                              <input type="checkbox" class="flat-red check" name="id[]" value="<?= $posyandu->id; ?>">
+                              <input type="checkbox" class="flat-red check" name="id[]" value="<?= $depag['no']; ?>">
                            </td>
                            
-                           <td><?= _ent($posyandu->posyandu_nama); ?></td> 
-                           <td><?= _ent($posyandu->alamat); ?></td>
-                            <td><?= _ent($posyandu->alamat); ?></td> 
-                           <td width="200">
-                              <?php is_allowed('posyandu_view', function() use ($posyandu){?>
-                              <a href="<?= site_url('posyandu/view/' . $posyandu->id); ?>" title="Lihat" class="label-default"><i class="fa fa-newspaper-o"></i> 
-                              <?php }) ?>
-                              <?php is_allowed('posyandu_update', function() use ($posyandu){?>
-                              <a href="<?= site_url('posyandu/edit/' . $posyandu->id); ?>" title="Ubah" class="label-default"><i class="fa fa-edit "></i> </a>
-                              <?php }) ?>
-                              <?php is_allowed('posyandu_delete', function() use ($posyandu){?>
-                              <a href="javascript:void(0);" data-href="<?= site_url('posyandu/delete/' . $posyandu->id); ?>" title="Hapus" class="label-default remove-data"><i class="fa fa-close" style="color: red"></i> </a>
-                               <?php }) ?>
-                           </td>
+                           <td style="text-align:center"><?= _ent($depag['no']); ?></td> 
+                           <td style="text-align:center"><?= _ent($depag['jenis']); ?></td>
+                            <td style="text-align:center"><?= _ent($depag['pria_nik']); ?></td> 
+                            <td style="text-align:center"><?= _ent($depag['pria_nama_lengkap']); ?></td> 
+                            <td style="text-align:center"><?= _ent($depag['wanita_nik']); ?></td> 
+                            <td style="text-align:center"><?= _ent($depag['wanita_nama_lengkap']); ?></td> 
+                            <td style="text-align:center"><?= _ent($depag['waktu']); ?></td> 
+                            <td style="text-align:center">-</td> 
+                          
                         </tr>
                       <?php endforeach; ?>
-                      <?php if ($posyandu_counts == 0) :?>
+                      <?php if ($depag_counts == 0) :?>
                          <tr>
                            <td colspan="100">
                            API Dalam Proses Pengembangan
