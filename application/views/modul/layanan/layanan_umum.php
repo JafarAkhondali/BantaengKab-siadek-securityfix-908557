@@ -88,7 +88,7 @@ jQuery(document).ready(domo);
                             <td style="text-align:center"><?= _ent($layanan_umum['nik']); ?></td> 
                            <td style="text-align:center"><?= _ent($layanan_umum['nama_lengkap']); ?> </td>
                            <td style="text-align:center">ada </td>
-                           <td style="text-align:center"><?php echo date_format($layanan_umum['waktu_permohonan'],"d/m/Y"); ?></td>
+                           <td style="text-align:center"><?php $date_create = date_create($layanan_umum['waktu_permohonan']); echo date_format($date_create,"d/m/Y"); ?></td>
                         </tr>
                       <?php endforeach; ?>
                       <?php if ($layanan_umum_counts == 0) :?>
