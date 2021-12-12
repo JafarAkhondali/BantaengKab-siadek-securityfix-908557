@@ -44,7 +44,6 @@ class Layanan_konsolidasi extends Admin
 		$this->data['layanan_konsolidasis'] = $respon['0']['response']['data'];
 		// return $respon['0']['response']['data'];
 		$this->data['layanan_konsolidasi_counts'] = '10';
-		return $respon;
 		// $this->data['pagination'] = $this->pagination($config);
 
 		// $this->data['pagination'] = $this->pagination($config);
