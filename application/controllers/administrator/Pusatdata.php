@@ -26,7 +26,7 @@ class Pusatdata extends Admin
 		
 	);
 	 $ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, 'http://10.73.3.200:8182/silacak/public/api/v1/layanan/umum/aggregat');
+	curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1:8182/silacak/public/api/v1/layanan/umum/aggregat');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($datas));
