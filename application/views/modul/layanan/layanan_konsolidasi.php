@@ -71,7 +71,8 @@ jQuery(document).ready(domo);
                            <th style="text-align:center" width="10%">No</th>
                            <th style="text-align:center">Alasan Konsolidasi</th>
                            <th style="text-align:center" width="30%">Nik</th>
-                           <th style="text-align:center" width="30%">Nama Lengkap</th>
+                           <th style="text-align:center" width="20%">Nama Lengkap</th>
+                            <th style="text-align:center" width="10%">Status</th>
                             <th style="text-align:center" width="20%">Waktu Permohonan</th>
                         </tr>
                      </thead>
@@ -86,8 +87,9 @@ jQuery(document).ready(domo);
                            <td style="text-align:center"><?= _ent($layanan_konsolidasi['alasan_konsolidasi']); ?></td>
                             <td style="text-align:center"><?= _ent($layanan_konsolidasi['nik']); ?></td> 
                             <td style="text-align:center"><?= _ent($layanan_konsolidasi['nama_lengkap']); ?></td> 
-                             <td style="text-align:center"><?php $date_create = date_create($layanan_konsolidasi['waktu_permohonan']); echo date_format($date_create,"d/m/Y"); ?></td>
-                           
+                              <td style="text-align:center"><?= _ent($layanan_konsolidasi['status']); ?></td>
+                           <td style="text-align:center"><?php $date_create = date_create($layanan_konsolidasi['sts1_waktu_permohonan']); echo date_format($date_create,"d/m/Y"); ?></td>
+                        
                         </tr>
                       <?php endforeach; ?>
                       <?php if ($layanan_konsolidasi_counts == 0) :?>

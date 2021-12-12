@@ -25,10 +25,11 @@ class Layanan_konsolidasi extends Admin
 	public function index($offset = 0)
 	{
 		$this->is_allowed('Layananan_Konsolidasi');
-
+	$status = $this->input->get('Status') ?? '1';
 		$data = array(
 		"token" => "9876543210",
 		"user" => "infokom",
+		"proses" => $status,
 		
 	);
 	 $ch = curl_init();

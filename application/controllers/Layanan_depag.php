@@ -25,9 +25,11 @@ class Layanan_depag extends Admin
 	public function index($offset = 0)
 	{
 		$this->is_allowed('Layananan_Umum_list');
-$data = array(
+	$status = $this->input->get('Status') ?? '1';
+		$data = array(
 		"token" => "9876543210",
 		"user" => "infokom",
+		"proses" => $status,
 		
 	);
 	 $ch = curl_init();
