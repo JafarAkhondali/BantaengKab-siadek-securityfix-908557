@@ -33,33 +33,33 @@ class Auth extends Admin
 
 		if ($this->form_validation->run()) {
 		    
-		      $recaptchaResponse = trim($this->input->post('g-recaptcha-response'));
-        $userIp=$this->input->ip_address();
-        $secret='6LfPFl0aAAAAAF4NpSkJEeem8AXqZ-pwVbKrBruE'; // ini adalah Secret key yang didapat dari google, silahkan disesuaikan
-        $credential = array(
-              'secret' => $secret,
-              'response' => $this->input->post('g-recaptcha-response')
-          );
-        $verify = curl_init();
-        curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
-        curl_setopt($verify, CURLOPT_POST, true);
-        curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($credential));
-        curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($verify);
+		//       $recaptchaResponse = trim($this->input->post('g-recaptcha-response'));
+        // $userIp=$this->input->ip_address();
+        // $secret='6LfPFl0aAAAAAF4NpSkJEeem8AXqZ-pwVbKrBruE'; // ini adalah Secret key yang didapat dari google, silahkan disesuaikan
+        // $credential = array(
+        //       'secret' => $secret,
+        //       'response' => $this->input->post('g-recaptcha-response')
+        //   );
+        // $verify = curl_init();
+        // curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+        // curl_setopt($verify, CURLOPT_POST, true);
+        // curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($credential));
+        // curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
+        // curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+        // $response = curl_exec($verify);
  
-        $status= json_decode($response, true);
+        // $status= json_decode($response, true);
  
- if($status['success'])	{	
+//  if($status['success'])	{	
      if ($this->aauth->login($this->input->post('username'), $this->input->post('password'), $this->input->post('remember'))) 
 			{   
 				redirect('administrator/pusatdata','refresh');
 			} else {
 				$data['error'] = $this->aauth->print_errors(TRUE);
 			}
- }  else{
-            	set_message('Sorry Google Recaptcha Unsuccessful!!', 'danger');
-        }
+//  }  else{
+//             	set_message('Sorry Google Recaptcha Unsuccessful!!', 'danger');
+//         }
 		} else {
 			$data['error'] = validation_errors();
 		}
