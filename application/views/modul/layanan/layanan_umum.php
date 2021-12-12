@@ -60,6 +60,34 @@ jQuery(document).ready(domo);
                   </div>
                 
                   <form name="form_layanan_umum" id="form_layanan_umum" action="<?= base_url('layanan_umum/index'); ?>">
+
+
+                          <div class="row">
+                    <div class="form-group ">
+                   <div class="col-sm-3">
+                                <select  class="form-control chosen chosen-select-deselect" name="Status" id="Status" data-placeholder="PILIH Status" onchange="submit()">
+                                  <option value="0"></option>
+                                    <option 
+                                    <?php if ('1' == $this->input->get('Status') || NULL == $this->input->get('Status')) { ?>selected="selected"<?php } ?>
+                                    value="1">Belum Proses</option>
+                                     <option 
+                                    <?php if ('2' == $this->input->get('Status')) { ?>selected="selected"<?php } ?>
+                                    value="2">-</option>
+                                     <option 
+                                    <?php if ('3' == $this->input->get('Status')) { ?>selected="selected"<?php } ?>
+                                    value="3">Proses</option>
+                                     <option 
+                                    <?php if('4' == $this->input->get('Status')) { ?>selected="selected"<?php } ?>
+                                    value="4">Berkas Selesai</option>
+                                    
+                                </select>
+                                <small class="info help-block">
+                                </small>
+                            </div>
+                        </div>
+                  </div>
+
+
                     <br>
                   <div class="table-responsive"> 
                   <table class="table table-bordered table-striped dataTable">
