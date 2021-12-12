@@ -210,7 +210,7 @@
             </div>
             <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class=""><a href="#1" data-toggle="tab" aria-expanded="false" data-original-title="" title="">Layanan</a></li>
+                        <li class=""><a href="#1" data-toggle="tab" aria-expanded="false" data-original-title="" title="">Layanan Umum</a></li>
                        <li class="active"><a href="#3" data-toggle="tab" aria-expanded="false" data-original-title="" title="">Adminduk</a></li>
                      </ul>
             </div>
