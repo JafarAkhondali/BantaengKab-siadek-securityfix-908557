@@ -25,7 +25,7 @@ class Layanan_umum extends Admin
 	public function index($offset = 0)
 	{
 		$this->is_allowed('Layananan_Umum_list');
-		$status = $this->input->get('Status');
+		$status = $this->input->get('Status') ?? '1';
 		$data = array(
 		"token" => "9876543210",
 		"user" => "infokom",
