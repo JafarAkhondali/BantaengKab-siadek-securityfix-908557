@@ -250,7 +250,17 @@
 <script>
 
 var options = {
-          series: [1, 2, 3, 4, 5],
+          series: [ <?php 
+            echo $l_b_proses;
+          ?>, <?php 
+            echo $l_tolak;
+          ?>, <?php  
+            echo $l_proses;
+          ?>, <?php  
+            echo $l_selesai;
+          ?>, <?php  
+            echo $l_serah;
+          ?>],
           chart: {
           width: 380,
           type: 'pie',

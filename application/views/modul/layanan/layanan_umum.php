@@ -75,13 +75,16 @@ jQuery(document).ready(domo);
                                     value="1">Belum Proses</option>
                                      <option 
                                     <?php if ('2' == $this->input->get('Status')) { ?>selected="selected"<?php } ?>
-                                    value="2">-</option>
+                                    value="2">Ditolak</option>
                                      <option 
                                     <?php if ('3' == $this->input->get('Status')) { ?>selected="selected"<?php } ?>
                                     value="3">Proses</option>
                                      <option 
                                     <?php if('4' == $this->input->get('Status')) { ?>selected="selected"<?php } ?>
                                     value="4">Berkas Selesai</option>
+                                     <option 
+                                    <?php if('5' == $this->input->get('Status')) { ?>selected="selected"<?php } ?>
+                                    value="5">Telah Diserahkan</option>
                                     
                                 </select>
                                 <small class="info help-block">

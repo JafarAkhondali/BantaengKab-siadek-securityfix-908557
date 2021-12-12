@@ -20,27 +20,31 @@ class Pusatdata extends Admin
 
     public function index(){
 
-    // $datas = array(
-	// 	"token" => "9876543210",
-	// 	"user" => "infokom",
+    $datas = array(
+		"token" => "9876543210",
+		"user" => "infokom",
 		
-	// );
-	//  $ch = curl_init();
-	// curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1:8182/silacak/public/api/v1/layanan/umum/aggregat');
-	// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	// curl_setopt($ch, CURLOPT_POST, true);
-	// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($datas));
-	// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/json')); 
-	// $result = curl_exec($ch);
-	// $respon = json_decode($result,true);
+	);
+	 $ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1:8182/silacak/public/api/v1/layanan/umum/aggregate');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($datas));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/json')); 
+	$result = curl_exec($ch);
+	$respon = json_decode($result,true);
 
 		
 
 
 
 
-    //  $data['layanan_depags'] = $respon['0']['response']['data'];
-    //  return $data['layanan_depags'];
+     $data['l_b_proses'] = $respon['0']['response']['data']['0']['belum_proses'];
+     $data['l_tolak'] = $respon['0']['response']['data']['0']['ditolak'];
+     $data['l_proses'] = $respon['0']['response']['data']['0']['berkas_diproses'];
+     $data['l_selesai'] = $respon['0']['response']['data']['0']['selesai_dibuat'];
+     $data['l_serah'] = $respon['0']['response']['data']['0']['telah_diserahkan'];
+
      $data['penduduk'] = $this->model_dasboard->count_penduduk();
      $data['pend_laki'] = $this->model_dasboard->pend_laki();
      $data['pend_perem'] = $this->model_dasboard->pend_perem();
