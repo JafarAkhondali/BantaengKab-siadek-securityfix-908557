@@ -61,6 +61,9 @@ jQuery(document).ready(domo);
                 
                   <form name="form_layanan_umum" id="form_layanan_umum" action="<?= base_url('layanan_umum/index'); ?>">
 
+                     <br>
+                      <br>
+                     <br>
 
                           <div class="row">
                     <div class="form-group ">
@@ -89,8 +92,6 @@ jQuery(document).ready(domo);
 
 
                     <br>
-                     <br>
-                      <br>
                   <div class="table-responsive"> 
                   <table class="table table-bordered table-striped dataTable">
                      <thead>
