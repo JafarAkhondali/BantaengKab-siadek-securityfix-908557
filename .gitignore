@@ -22,7 +22,7 @@ apidoc/module/*
 apidoc/*
 application/controllers/api/Example.php
 application/controllers/api/Key.php
-index.php
+
 
 apidoc/api_data.js
 
@@ -37,7 +37,7 @@ captcha/*
 phploy
 phploy.ini
 
-/vendor/*
+
 
 # IDE Files
 #-------------------------
