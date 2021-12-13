@@ -85,7 +85,7 @@ jQuery(document).ready(domo);
                               <input type="checkbox" class="flat-red check" name="id[]" value="<?= $depag['no']; ?>">
                            </td>
                            
-                           <td style="text-align:center">><?= _ent($depag['no']);?></td> 
+                           <td style="text-align:center"><?= _ent($depag['no']);?></td> 
                            <td style="text-align:center"><?= _ent($depag['jenis']); ?></td>
                             <td style="text-align:center"><?php echo substr($depag['pria_nik'],0,6);?>*******</td> 
                             <td style="text-align:center"><?= _ent($depag['pria_nama_lengkap']); ?></td> 
