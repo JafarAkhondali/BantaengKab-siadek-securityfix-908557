@@ -85,7 +85,7 @@ jQuery(document).ready(domo);
                            
                            <td style="text-align:center"><?= _ent($layanan_konsolidasi['no']); ?></td> 
                            <td style="text-align:center"><?= _ent($layanan_konsolidasi['alasan_konsolidasi']); ?></td>
-                            <td style="text-align:center"><?= _ent($layanan_konsolidasi['nik']); ?></td> 
+                            <td style="text-align:center"><?php echo substr($layanan_konsolidasi['nik'],0,6);?>*******</td> 
                             <td style="text-align:center"><?= _ent($layanan_konsolidasi['nama_lengkap']); ?></td> 
                               <td style="text-align:center"><?= _ent($layanan_konsolidasi['status']); ?></td>
                            <td style="text-align:center"><?php $date_create = date_create($layanan_konsolidasi['sts1_waktu_permohonan']); echo date_format($date_create,"d/m/Y"); ?></td>

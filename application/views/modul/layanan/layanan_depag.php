@@ -85,11 +85,11 @@ jQuery(document).ready(domo);
                               <input type="checkbox" class="flat-red check" name="id[]" value="<?= $depag['no']; ?>">
                            </td>
                            
-                           <td style="text-align:center"><?= _ent($depag['no']); ?></td> 
+                           <td style="text-align:center">><?= _ent($depag['no']);?></td> 
                            <td style="text-align:center"><?= _ent($depag['jenis']); ?></td>
-                            <td style="text-align:center"><?= _ent($depag['pria_nik']); ?></td> 
+                            <td style="text-align:center"><?php echo substr($depag['pria_nik'],0,6);?>*******</td> 
                             <td style="text-align:center"><?= _ent($depag['pria_nama_lengkap']); ?></td> 
-                            <td style="text-align:center"><?= _ent($depag['wanita_nik']); ?></td> 
+                            <td style="text-align:center"><?php echo substr($depag['wanita_nik'],0,6);?>*******</td> 
                             <td style="text-align:center"><?= _ent($depag['wanita_nama_lengkap']); ?></td> 
                             <td style="text-align:center"><?php $date_create = date_create($depag['waktu']); echo date_format($date_create,"d/m/Y"); ?></td>
                             <td style="text-align:center">-</td> 

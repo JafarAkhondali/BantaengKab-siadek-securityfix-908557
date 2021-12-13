@@ -119,7 +119,7 @@ jQuery(document).ready(domo);
                            
                            <td style="text-align:center"><?= _ent($layanan_umum['no']); ?></td> 
                            <td style="text-align:center"><?= _ent($layanan_umum['jenis_layanan']); ?></td>
-                            <td style="text-align:center"><?= _ent($layanan_umum['nik']); ?></td> 
+                            <td style="text-align:center"><?php echo substr($layanan_umum['nik'],0,6);?>*******</td> 
                            <td style="text-align:center"><?= _ent($layanan_umum['nama_lengkap']); ?> </td>
                            <td style="text-align:center"><?= _ent($layanan_umum['status']); ?></td>
                            <td style="text-align:center"><?php $date_create = date_create($layanan_umum['sts1_waktu_permohonan']); echo date_format($date_create,"d/m/Y"); ?></td>
