@@ -129,11 +129,11 @@ jQuery(document).ready(domo);
                         <tr>
                         
                            
-                           <td><?php $date_create = date_create($vak->tanggal); echo date_format($date_create,"d/m/Y"); ?></td> 
-                           <td><?= _ent($vak->faskes); ?></td> 
-                           <td><?= _ent($vak->dosis); ?></td>
-                           <td><?= _ent($vak->jenis_vaksin); ?></td> 
-                           <td><?= _ent($vak->tiket); ?></td> 
+                           <td style="text-align:center"><?php $date_create = date_create($vak->tanggal); echo date_format($date_create,"d/m/Y"); ?></td> 
+                           <td style="text-align:center"><?= _ent($vak->faskes); ?></td> 
+                           <td style="text-align:center"><?= _ent($vak->dosis); ?></td>
+                           <td style="text-align:center"><?= _ent($vak->jenis_vaksin); ?></td> 
+                           <td style="text-align:center"><?= _ent($vak->tiket); ?></td> 
                          
                         </tr>
                       <?php endforeach; ?>
