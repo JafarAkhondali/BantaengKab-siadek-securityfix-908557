@@ -71,26 +71,29 @@ jQuery(document).ready(domo);
                            <th>
                             <input type="checkbox" class="flat-red toltip" id="check_all" name="check_all" title="check all">
                            </th>
+                           <th style="text-align:center">Nik</th>
+                           <th style="text-align:center">Nama</th>
+                           <th style="text-align:center">Tanggal Lahir</th>
+                           <th style="text-align:center">Jenis Kelamin</th>
+                           <th style="text-align:center">Alamat</th>
                            <th style="text-align:center">Dosis</th>
-                           <th style="text-align:center">Jenis Vaksin</th>
-                           <th style="text-align:center">Faskes</th>
-                           <th style="text-align:center">Tiket</th>
-                           <th style="text-align:center">Tanggal</th>
                            <th style="text-align:center" width="7%">Action</th>
                         </tr>
                      </thead>
                      <tbody id="tbody_vaksinasi">
                      <?php foreach($vaksinasis as $vaksinasi): ?>
                         <tr>
+                           <tr>
                            <td width="5">
                               <input type="checkbox" class="flat-red check" name="id[]" value="<?= $vaksinasi->id; ?>">
                            </td>
                            
-                           <td><?= _ent($vaksinasi->dosis); ?></td> 
-                           <td><?= _ent($vaksinasi->jenis_vaksin); ?></td> 
-                           <td><?= _ent($vaksinasi->faskes); ?></td> 
-                           <td><?= _ent($vaksinasi->tiket); ?></td> 
-                           <td><?= _ent($vaksinasi->tanggal); ?></td> 
+                           <td><?php echo substr($vaksinasi->nik,0,6);?>******* </td> 
+                           <td><?= _ent($vaksinasi->nama); ?></td> 
+                           <td><?= _ent($vaksinasi->tgl_lahir); ?></td> 
+                           <td><?= _ent($vaksinasi->jenis_kelamin); ?></td> 
+                           <td><?= _ent($vaksinasi->alamat); ?></td> 
+                           <td></td>
                            <td width="200">
                               <?php is_allowed('vaksinasi_view', function() use ($vaksinasi){?>
                               <a href="<?= site_url('vaksinasi/view/' . $vaksinasi->id); ?>" title="Lihat" class="label-default"><i class="fa fa-newspaper-o"></i> 
@@ -134,11 +137,12 @@ jQuery(document).ready(domo);
                      <div class="col-sm-3 padd-left-0 " >
                         <select type="text" class="form-control chosen chosen-select" name="f" id="field" >
                            <option value=""><?= cclang('all'); ?></option>
-                            <option <?= $this->input->get('f') == 'dosis' ? 'selected' :''; ?> value="dosis">Dosis</option>
-                           <option <?= $this->input->get('f') == 'jenis_vaksin' ? 'selected' :''; ?> value="jenis_vaksin">Jenis Vaksin</option>
-                           <option <?= $this->input->get('f') == 'faskes' ? 'selected' :''; ?> value="faskes">Faskes</option>
-                           <option <?= $this->input->get('f') == 'tiket' ? 'selected' :''; ?> value="tiket">Tiket</option>
-                           <option <?= $this->input->get('f') == 'tanggal' ? 'selected' :''; ?> value="tanggal">Tanggal</option>
+                          <option <?= $this->input->get('f') == 'nik' ? 'selected' :''; ?> value="nik">Nik</option>
+                           <option <?= $this->input->get('f') == 'no_kk' ? 'selected' :''; ?> value="no_kk">No Kk</option>
+                           <option <?= $this->input->get('f') == 'nama' ? 'selected' :''; ?> value="nama">Nama</option>
+                           <option <?= $this->input->get('f') == 'tgl_lahir' ? 'selected' :''; ?> value="tgl_lahir">Tgl Lahir</option>
+                           <option <?= $this->input->get('f') == 'jenis_kelamin' ? 'selected' :''; ?> value="jenis_kelamin">Jenis Kelamin</option>
+                           <option <?= $this->input->get('f') == 'alamat' ? 'selected' :''; ?> value="alamat">Alamat</option>
                           </select>
                      </div>
                      <div class="col-sm-1 padd-left-0 ">
