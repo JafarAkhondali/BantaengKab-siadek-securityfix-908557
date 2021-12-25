@@ -74,11 +74,6 @@ jQuery(document).ready(domo);
                       <td>Tanggal Lahir</td>
                       <td><?php echo date('d-m-Y',strtotime($vaksinasi->tgl_lahir)); ?></td>
                     </tr>
-                    
-                    <tr>
-                      <td>Tempat Lahir</td>
-                      <td> <?= _ent($vaksinasi->tempat_lahir); ?></td>
-                    </tr>
                      <tr>
                       <td>Jenis Kelamin</td>
                       <td><?= _ent($vaksinasi->jenis_kelamin); ?></td>
@@ -106,22 +101,6 @@ jQuery(document).ready(domo);
                     <tr>
                       <td>Alamat</td>
                       <td><?= _ent($vaksinasi->alamat); ?></td>
-                    </tr>
-                    <tr>
-                      <td>Status Hubungan</td>
-                      <td><?php echo setup_get_data('setup_hubungan', $vaksinasi->status_hubungan);?></td>
-                    </tr>
-                    <tr>
-                      <td>Status Perkawinan</td>
-                      <td> <?php if($vaksinasi->status_perkawinan==1){echo "Kawin";}else {echo "Belum Kawin";}; ?></td>
-                    </tr>
-                    <tr>
-                      <td>Nama Ayah</td>
-                      <td> <?= _ent($vaksinasi->nama_ayah); ?></td>
-                    </tr>
-                     <tr>
-                      <td>Nama Ibu</td>
-                      <td> <?= _ent($vaksinasi->Nama_Ibu); ?></td>
                     </tr>
                      
                       
