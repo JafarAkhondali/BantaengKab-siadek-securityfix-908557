@@ -100,7 +100,7 @@ jQuery(document).ready(domo);
                     </tr>
                      <tr>
                       <td>Dosis Terakhir</td>
-                      <td><?= _ent($vaksinasi->dosis); ?></td>
+                      <td><?php echo setup_get_vaksin($vaksinasi->nik); ?></td>
                     </tr>
                      
                       
