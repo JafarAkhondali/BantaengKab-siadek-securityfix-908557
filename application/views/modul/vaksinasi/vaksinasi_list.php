@@ -144,7 +144,7 @@ jQuery(document).ready(domo);
                            <td><?php $dosis = setup_get_vaksin($vaksinasi->nik); echo $dosis;   ?></td>
                            <td width="200">
                               <?php is_allowed('vaksinasi_view', function() use ($vaksinasi){?>
-                              <a href="<?= site_url('vaksinasi/view/' . $vaksinasi->id); ?>" title="Lihat" class="label-default"><i class="fa fa-newspaper-o"></i> 
+                              <a href="<?= site_url('vaksinasi/view/' . $vaksinasi->nik); ?>" title="Lihat" class="label-default"><i class="fa fa-newspaper-o"></i> 
                               <?php }) ?>
                               <?php is_allowed('vaksinasi_update', function() use ($vaksinasi){?>
                               <a href="<?= site_url('vaksinasi/edit/' . $vaksinasi->id); ?>" title="Ubah" class="label-default"><i class="fa fa-edit "></i> </a>

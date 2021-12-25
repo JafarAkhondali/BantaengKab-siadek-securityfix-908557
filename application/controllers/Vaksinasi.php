@@ -261,11 +261,11 @@ class Vaksinasi extends Admin
 	*
 	* @var $id String
 	*/
-	public function view($id)
+	public function view($nik)
 	{
 		$this->is_allowed('vaksinasi_view');
 
-		$this->data['vaksinasi'] = $this->model_vaksinasi->join_avaiable()->filter_avaiable()->find($id);
+		$this->data['vaksinasi'] = $this->model_vaksinasi->join_avaiable()->filter_avaiable()->find($nik);
 
 		$this->template->title('Vaksinasi Detail');
 		$this->render('modul/vaksinasi/vaksinasi_view', $this->data);

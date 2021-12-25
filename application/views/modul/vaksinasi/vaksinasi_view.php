@@ -46,118 +46,91 @@ jQuery(document).ready(domo);
                  
                   <div class="form-horizontal" name="form_vaksinasi" id="form_vaksinasi" >
                    
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Id </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->id); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Nik </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->nik); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Nama </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->nama); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Jenis Kelamin </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->jenis_kelamin); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Kelompok Usia </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->kl_usia); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Dosis </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->dosis); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Jenis Vaksin </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->jenis_vaksin); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Faskes </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->faskes); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Tiket </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->tiket); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Tanggal </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->tanggal); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Created By </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->created_by); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Last Updated By </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->last_updated_by); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Creation Date </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->creation_date); ?>
-                        </div>
-                    </div>
-                                         
-                    <div class="form-group ">
-                        <label for="content" class="col-sm-2 control-label">Last Updated Date </label>
-
-                        <div class="col-sm-8">
-                           <?= _ent($vaksinasi->last_updated_date); ?>
-                        </div>
-                    </div>
-                                        
+                      <div class="col-lg-6">
+                <div class="card">
+              <div class="card-header">
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td>Wilayah</td>
+                      <td><?php $wilayah=$vaksinasi->kd_wilayah; foreach(db_get_all_data('wilayah',"kd_wilayah=$wilayah") as $nm_wilayah){echo $nm_wilayah->nama;} ?></td>
+                    </tr>
+                    <tr>
+                      <td>NIK</td>
+                      <td> <?= _ent($vaksinasi->nik); ?></td>
+                    </tr>
+                     <tr>
+                      <td>Nomor KK</td>
+                      <td> <?= _ent($vaksinasi->no_kk); ?></td>
+                    </tr>
+                     <tr>
+                      <td>Nama</td>
+                      <td><?= _ent($vaksinasi->nama); ?></td>
+                    </tr>
+                    <tr>
+                      <td>Tanggal Lahir</td>
+                      <td><?php echo date('d-m-Y',strtotime($vaksinasi->tgl_lahir)); ?></td>
+                    </tr>
+                    
+                    <tr>
+                      <td>Tempat Lahir</td>
+                      <td> <?= _ent($vaksinasi->tempat_lahir); ?></td>
+                    </tr>
+                     <tr>
+                      <td>Jenis Kelamin</td>
+                      <td><?= _ent($vaksinasi->jenis_kelamin); ?></td>
+                    </tr>
+                          
+                     
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+                </div>
+                        <div class="col-lg-6">
+                <div class="card">
+              <div class="card-header">
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td>Jenis Kelamin</td>
+                      <td><?= _ent($vaksinasi->jenis_kelamin); ?></td>
+                    </tr>
+                    <tr>
+                      <td>Alamat</td>
+                      <td><?= _ent($vaksinasi->alamat); ?></td>
+                    </tr>
+                    <tr>
+                      <td>Status Hubungan</td>
+                      <td><?php echo setup_get_data('setup_hubungan', $vaksinasi->status_hubungan);?></td>
+                    </tr>
+                    <tr>
+                      <td>Status Perkawinan</td>
+                      <td> <?php if($vaksinasi->status_perkawinan==1){echo "Kawin";}else {echo "Belum Kawin";}; ?></td>
+                    </tr>
+                    <tr>
+                      <td>Nama Ayah</td>
+                      <td> <?= _ent($vaksinasi->nama_ayah); ?></td>
+                    </tr>
+                     <tr>
+                      <td>Nama Ibu</td>
+                      <td> <?= _ent($vaksinasi->Nama_Ibu); ?></td>
+                    </tr>
+                     
+                      
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            </div>
                     <br>
                     <br>
 
