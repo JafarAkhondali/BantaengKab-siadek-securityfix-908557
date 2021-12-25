@@ -149,6 +149,10 @@ jQuery(document).ready(domo);
                     <br>
                     <br>
 
+                     <div class="view-nav">
+                        <a class="btn btn-flat btn-default btn_action" id="btn_back" title="back (Ctrl+x)" href="<?= site_url('vaksinasi/'); ?>"><i class="fa fa-undo" ></i> <?= cclang('go_list_button', ['vaksinasi']); ?></a>
+                     </div>
+
                    
                     
                   </div>
