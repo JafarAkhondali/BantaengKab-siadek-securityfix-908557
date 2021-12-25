@@ -46,16 +46,16 @@ class Model_vaksinasi extends MY_Model {
         if (empty($field)) {
 	        foreach ($this->field_search as $field) {
 	            if ($iterasi == 1) {
-	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and view.vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and view.vaksinasi.dosis = '$status' ";
+	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%'  ";
 	            } else {
-	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and view.vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and view.vaksinasi.dosis = '$status' ";
+	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
 	            }
 	            $iterasi++;
 	        }
 
 	        $where = '('.$where.')';
         } else {
-        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and view.vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and view.vaksinasi.dosis = '$status' )";
+        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%'  )";
         }
 
 		$this->join_avaiable()->filter_avaiable();
@@ -90,16 +90,16 @@ class Model_vaksinasi extends MY_Model {
         if (empty($field)) {
 	        foreach ($this->field_search as $field) {
 	            if ($iterasi == 1) {
-	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and view.vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and view.vaksinasi.dosis = '$status' ";
+	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
 	            } else {
-	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and view.vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and view.vaksinasi.dosis = '$status' ";
+	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
 	            }
 	            $iterasi++;
 	        }
 
 	        $where = '('.$where.')';
         } else {
-        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and view.vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and view.vaksinasi.dosis = '$status' )";
+        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%')";
         }
 
         if (is_array($select_field) AND count($select_field)) {
