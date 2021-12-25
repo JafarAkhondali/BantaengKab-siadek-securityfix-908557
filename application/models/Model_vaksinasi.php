@@ -46,16 +46,16 @@ class Model_vaksinasi extends MY_Model {
         if (empty($field)) {
 	        foreach ($this->field_search as $field) {
 	            if ($iterasi == 1) {
-	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%'  AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' ";
+	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%'  AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' AND view_vaksinasi.dosis='$status' ";
 	            } else {
-	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' ";
+	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' AND view_vaksinasi.dosis='$status' ";
 	            }
 	            $iterasi++;
 	        }
 
 	        $where = '('.$where.')';
         } else {
-        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%'  )";
+        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' AND view_vaksinasi.dosis='$status'  )";
         }
 
 		$this->join_avaiable()->filter_avaiable();
@@ -90,16 +90,16 @@ class Model_vaksinasi extends MY_Model {
         if (empty($field)) {
 	        foreach ($this->field_search as $field) {
 	            if ($iterasi == 1) {
-	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' ";
+	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' AND view_vaksinasi.dosis='$status' ";
 	            } else {
-	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' ";
+	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' AND view_vaksinasi.dosis='$status' ";
 	            }
 	            $iterasi++;
 	        }
 
 	        $where = '('.$where.')';
         } else {
-        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%')";
+        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' AND view_vaksinasi.dosis='$status')";
         }
 
         if (is_array($select_field) AND count($select_field)) {
