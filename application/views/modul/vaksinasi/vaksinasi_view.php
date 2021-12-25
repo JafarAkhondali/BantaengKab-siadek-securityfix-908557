@@ -74,10 +74,6 @@ jQuery(document).ready(domo);
                       <td>Tanggal Lahir</td>
                       <td><?php echo date('d-m-Y',strtotime($vaksinasi->tgl_lahir)); ?></td>
                     </tr>
-                     <tr>
-                      <td>Jenis Kelamin</td>
-                      <td><?= _ent($vaksinasi->jenis_kelamin); ?></td>
-                    </tr>
                           
                      
                   </tbody>
@@ -110,15 +106,46 @@ jQuery(document).ready(domo);
               <!-- /.card-body -->
             </div>
             </div>
+
+             <table class="table table-bordered table-striped dataTable">
+                     <thead>
+                        <tr class="">
+                          
+                           <th style="text-align:center" width="10%">Tanggal</th>
+                           <th style="text-align:center" width="20%">Faskes</th>
+                           <th style="text-align:center" width="10%">Dosis</th>
+                           <th style="text-align:center" width="20%">Jenis Vaksin</th>
+                           <th style="text-align:center" width="10%">Tiket</th>
+                        </tr>
+                     </thead>
+                     <tbody id="tbody_penduduk">
+                     <?php 
+                      $vaks = db_get_all_data('vaksinasi',"nik= $vaksinasi->nik");
+                     foreach($vaks as $vak): ?>
+                        <tr>
+                        
+                           
+                           <td><?php $date_create = date_create($vak->tanggal); echo date_format($date_create,"d/m/Y"); ?></td> 
+                           <td><?= _ent($vak->faskes); ?></td> 
+                           <td><?= _ent($vak->dosis); ?></td>
+                           <td><?= _ent($vak->jenis_vaksin); ?></td> 
+                           <td><?= _ent($vak->tiket); ?></td> 
+                         
+                        </tr>
+                      <?php endforeach; ?>
+                      <?php if (count($vaks) == 0) :?>
+                         <tr>
+                           <td colspan="100">
+                           Penduduk data is not available
+                           </td>
+                         </tr>
+                      <?php endif; ?>
+                     </tbody>
+                  </table>
                     <br>
                     <br>
 
-                    <div class="view-nav">
-                        <?php is_allowed('vaksinasi_update', function() use ($vaksinasi){?>
-                        <a class="btn btn-flat btn-info btn_edit btn_action" id="btn_edit" data-stype='back' title="edit vaksinasi (Ctrl+e)" href="<?= site_url('vaksinasi/edit/'.$vaksinasi->id); ?>"><i class="fa fa-edit" ></i> <?= cclang('update', ['Vaksinasi']); ?> </a>
-                        <?php }) ?>
-                        <a class="btn btn-flat btn-default btn_action" id="btn_back" title="back (Ctrl+x)" href="<?= site_url('vaksinasi/'); ?>"><i class="fa fa-undo" ></i> <?= cclang('go_list_button', ['Vaksinasi']); ?></a>
-                     </div>
+                   
                     
                   </div>
                </div>
