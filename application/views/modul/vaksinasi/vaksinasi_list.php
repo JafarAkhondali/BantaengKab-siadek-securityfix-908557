@@ -97,8 +97,21 @@ jQuery(document).ready(domo);
                                 </small>
                             </div>
 
-
-                                                   </div>
+                            <div class="col-sm-3">
+                                <select  class="form-control chosen chosen-select-deselect" name="status" id="status" data-placeholder="PILIH Status" onchange="submit()">
+                                  <option value="0"></option>
+                                    <option 
+                                    <?php if ('Sudah' == $this->input->get('status')) { ?>selected="selected"<?php } ?>
+                                    value="Sudah">Sudah</option>
+                                     <option 
+                                    <?php if ('Belum' == $this->input->get('status')) { ?>selected="selected"<?php } ?>
+                                    value="Belum">Belum</option>
+                                    
+                                </select>
+                                <small class="info help-block">
+                                </small>
+                            </div>
+                        </div>
                   </div>
 
                   <div class="table-responsive"> 

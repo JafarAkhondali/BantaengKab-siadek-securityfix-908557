@@ -26,19 +26,36 @@ class Model_vaksinasi extends MY_Model {
         $q = $this->scurity($q);
 		$field = $this->scurity($field);
 
+		 //tambahan
+        $username = get_user_data('id'); 
+        $user_gr = get_user_group($username);
+        if($user_gr == '1' || $user_gr == '9' || $user_gr == '7'){
+			$kd_wilayah = $this->input->get('kd_wilayah');
+        }else{
+            $kd_wilayah = get_user_data('kd_wilayah');
+		}
+		if ($this->input->get('status')) {
+			$status = $this->input->get('status');
+		} else {
+			$status = 'Sudah';
+		}
+		
+		
+
+
         if (empty($field)) {
 	        foreach ($this->field_search as $field) {
 	            if ($iterasi == 1) {
-	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and vaksinasi.status = '$status' ";
 	            } else {
-	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and vaksinasi.status = '$status' ";
 	            }
 	            $iterasi++;
 	        }
 
 	        $where = '('.$where.')';
         } else {
-        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' )";
+        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and vaksinasi.status = '$status' )";
         }
 
 		$this->join_avaiable()->filter_avaiable();
@@ -56,19 +73,33 @@ class Model_vaksinasi extends MY_Model {
         $q = $this->scurity($q);
 		$field = $this->scurity($field);
 
+		 //tambahan
+        $username = get_user_data('id'); 
+        $user_gr = get_user_group($username);
+        if($user_gr == '1' || $user_gr == '9' || $user_gr == '7'){
+			$kd_wilayah = $this->input->get('kd_wilayah');
+        }else{
+            $kd_wilayah = get_user_data('kd_wilayah');
+		}
+		if ($this->input->get('status')) {
+			$status = $this->input->get('status');
+		} else {
+			$status = 'Sudah';
+		}
+
         if (empty($field)) {
 	        foreach ($this->field_search as $field) {
 	            if ($iterasi == 1) {
-	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and vaksinasi.status = '$status' ";
 	            } else {
-	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and vaksinasi.status = '$status' ";
 	            }
 	            $iterasi++;
 	        }
 
 	        $where = '('.$where.')';
         } else {
-        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' )";
+        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' and vaksinasi.kd_wilayah  LIKE '%" . $kd_wilayah . "%' and vaksinasi.status = '$status' )";
         }
 
         if (is_array($select_field) AND count($select_field)) {
