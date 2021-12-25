@@ -115,6 +115,21 @@ if(!function_exists('setup_get_data')) {
 	}
 }
 
+if(!function_exists('setup_get_vaksin')) {
+	function setup_get_vaksin($value = null) {
+		$ci =& get_instance();
+		$ci->db->where('nik',$value);
+		$ci->db->order_by('tanggal', 'DESC');
+		$ci->db->limit(1);
+		$query = $ci->db->get('vaksinasi'); 
+	  	$row = $query->first_row();
+	 
+       return $row->dosis;
+
+	   
+	}
+}
+
 if(!function_exists('setup_get_bps')) {
 	function setup_get_bps($value = null) {
 		$ci =& get_instance();

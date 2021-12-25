@@ -63,6 +63,43 @@ jQuery(document).ready(domo);
 
                   <form name="form_vaksinasi" id="form_vaksinasi" action="<?= base_url('vaksinasi/index'); ?>">
                   
+                  <div class="row">
+                    <div class="form-group ">
+                          
+                            <div class="col-sm-3">
+                              <?php 
+                                  $username = get_user_data('id'); 
+                                    $user_gr = get_user_group($username);
+                                    $kdwilayah = get_user_data('kd_wilayah'); 
+                                    if($user_gr == '1' || $user_gr == '9'){
+                                  $a = db_get_all_data('wilayah');
+                                }else{
+                                 $a = db_get_all_data('wilayah',"kd_wilayah LIKE '$kdwilayah%'");
+                                }
+                                
+                              ?>
+                                <select  class="form-control chosen chosen-select-deselect" name="kd_wilayah" id="kd_wilayah" data-placeholder="PILIH wilayah" onchange="submit()">
+                                 
+                                  <?php  $username = get_user_data('id'); 
+                                    $user_gr = get_user_group($username);
+                                    if($user_gr == '1' || $user_gr == '9' || $user_gr == '7'){ ?>
+                                    <option value="0"></option>
+                                  <?php } ?>
+
+                                  <?php foreach ($a as $row): ?>
+                                    
+                                    <option 
+                                    <?php if ($row->kd_wilayah == $this->input->get('kd_wilayah')) { ?>selected="selected"<?php } ?>
+                                    value="<?= $row->kd_wilayah ?>"><?= '[ '.$row->kd_wilayah.' ] '. $row->nama ?></option>
+                                    <?php endforeach; ?>  
+                                </select>
+                                <small class="info help-block">
+                                </small>
+                            </div>
+                            
+                           
+                        </div>
+                  </div>
 
                   <div class="table-responsive"> 
                   <table class="table table-bordered table-striped dataTable">
@@ -93,7 +130,7 @@ jQuery(document).ready(domo);
                            <td><?= _ent($vaksinasi->tgl_lahir); ?></td> 
                            <td><?= _ent($vaksinasi->jenis_kelamin); ?></td> 
                            <td><?= _ent($vaksinasi->alamat); ?></td> 
-                           <td></td>
+                           <td><?php $dosis = setup_get_vaksin($vaksinasi->nik); echo $dosis;   ?></td>
                            <td width="200">
                               <?php is_allowed('vaksinasi_view', function() use ($vaksinasi){?>
                               <a href="<?= site_url('vaksinasi/view/' . $vaksinasi->id); ?>" title="Lihat" class="label-default"><i class="fa fa-newspaper-o"></i> 
