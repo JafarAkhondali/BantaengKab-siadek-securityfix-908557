@@ -109,14 +109,14 @@
     </div>
     <div class="col-md-12">   
             <div class="col-md-8 col-sm-12 col-xs-12">
-            <div class="info-box">
+            <!-- <div class="info-box">
                 <div id="stunting">
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12">
             <div class="info-box">
-                <div id="stunting_jk">
+                <div id="vaksinasi">
                 </div>
             </div>
         </div>
@@ -133,6 +133,44 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="<?= BASE_ASSET; ?>admin-lte/plugins/morris/morris.min.js"></script>
+<script>
+ var options = {
+          series: [<?php echo db_get_all_data_count('view_vaksinasi',"dosis ='Sudah'");  ?>, 
+          <?php echo db_get_all_data_count('view_vaksinasi',"dosis ='belum'");  ?>],
+          chart: {
+          width: '100%',
+          type: 'pie',
+        },
+        labels: ["Sudah", "Belum"],
+        theme: {
+          monochrome: {
+            enabled: true
+          }
+        },
+        plotOptions: {
+          pie: {
+            dataLabels: {
+              offset: -5
+            }
+          }
+        },
+        title: {
+          text: "Vaksinasi"
+        },
+        dataLabels: {
+          formatter(val, opts) {
+            const name = opts.w.globals.labels[opts.seriesIndex]
+            return [name, val.toFixed(1) + '%']
+          }
+        },
+        legend: {
+          show: false
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#vaksinasi"), options);
+        chart.render();
+</script>
 <script>
  var options = {
           series: [25, 15],
