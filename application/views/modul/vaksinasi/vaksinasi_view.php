@@ -98,6 +98,10 @@ jQuery(document).ready(domo);
                       <td>Alamat</td>
                       <td><?= _ent($vaksinasi->alamat); ?></td>
                     </tr>
+                     <tr>
+                      <td>Dosis Terakhir</td>
+                      <td><?= _ent($vaksinasi->dosis); ?></td>
+                    </tr>
                      
                       
                   </tbody>
