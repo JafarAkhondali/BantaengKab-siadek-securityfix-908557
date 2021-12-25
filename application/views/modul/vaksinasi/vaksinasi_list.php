@@ -146,12 +146,7 @@ jQuery(document).ready(domo);
                               <?php is_allowed('vaksinasi_view', function() use ($vaksinasi){?>
                               <a href="<?= site_url('vaksinasi/view/' . $vaksinasi->id); ?>" title="Lihat" class="label-default"><i class="fa fa-newspaper-o"></i> 
                               <?php }) ?>
-                              <?php is_allowed('vaksinasi_update', function() use ($vaksinasi){?>
-                              <a href="<?= site_url('vaksinasi/edit/' . $vaksinasi->id); ?>" title="Ubah" class="label-default"><i class="fa fa-edit "></i> </a>
-                              <?php }) ?>
-                              <?php is_allowed('vaksinasi_delete', function() use ($vaksinasi){?>
-                              <a href="javascript:void(0);" data-href="<?= site_url('vaksinasi/delete/' . $vaksinasi->id); ?>" title="Hapus" class="label-default remove-data"><i class="fa fa-close" style="color: red"></i> </a>
-                               <?php }) ?>
+                             
                            </td>
                         </tr>
                       <?php endforeach; ?>
