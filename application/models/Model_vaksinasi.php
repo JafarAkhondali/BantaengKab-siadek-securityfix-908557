@@ -34,11 +34,7 @@ class Model_vaksinasi extends MY_Model {
         }else{
             $kd_wilayah = get_user_data('kd_wilayah');
 		}
-		if ($this->input->get('status')) {
 			$status = $this->input->get('status');
-		} else {
-			$status = 'Sudah';
-		}
 		
 		
 
