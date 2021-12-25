@@ -54,10 +54,7 @@ jQuery(document).ready(domo);
               <div class="card-body p-0">
                 <table class="table table-striped">
                   <tbody>
-                    <tr>
-                      <td>Wilayah</td>
-                      <td><?php $wilayah=$vaksinasi->kd_wilayah; foreach(db_get_all_data('wilayah',"kd_wilayah=$wilayah") as $nm_wilayah){echo $nm_wilayah->nama;} ?></td>
-                    </tr>
+                   
                     <tr>
                       <td>NIK</td>
                       <td> <?= _ent($vaksinasi->nik); ?></td>
