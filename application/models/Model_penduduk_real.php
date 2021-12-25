@@ -101,6 +101,7 @@ class Model_penduduk_real extends MY_Model {
 	}
 
     public function join_avaiable() {
+		
         return $this;
     }
 
