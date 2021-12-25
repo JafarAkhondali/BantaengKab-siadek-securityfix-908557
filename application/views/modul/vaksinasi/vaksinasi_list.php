@@ -128,8 +128,7 @@ jQuery(document).ready(domo);
                            <td><?= _ent($vaksinasi->nama); ?></td> 
                            <td style="text-align:center"><?php $date_create = date_create($vaksinasi->tgl_lahir); echo date_format($date_create,"d/m/Y"); ?></td>
                            <td><?= _ent($vaksinasi->jenis_kelamin); ?></td> 
-                           <td><?= _ent($vaksinasi->dosis); ?></td>
-                           
+                           <td><?php $dosis = setup_get_vaksin($vaksinasi->nik); echo $dosis;   ?></td>
                            <td width="200">
                               <?php is_allowed('vaksinasi_view', function() use ($vaksinasi){?>
                               <a href="<?= site_url('vaksinasi/view/' . $vaksinasi->id); ?>" title="Lihat" class="label-default"><i class="fa fa-newspaper-o"></i> 

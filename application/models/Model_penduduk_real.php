@@ -88,9 +88,7 @@ class Model_penduduk_real extends MY_Model {
 
         if (is_array($select_field) AND count($select_field)) {
         	$this->db->select($select_field);
-        }else {
-			$this->db->select('penduduk_real.*,vaksinasi.dosis');
-		}
+        }
 		
 		$this->join_avaiable()->filter_avaiable();
 
@@ -103,7 +101,6 @@ class Model_penduduk_real extends MY_Model {
 	}
 
     public function join_avaiable() {
-        $this->db->join('vaksinasi', 'vaksinasi.nik = penduduk_real.nik', 'left');
         return $this;
     }
 
