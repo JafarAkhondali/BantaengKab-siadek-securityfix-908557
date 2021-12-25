@@ -144,7 +144,7 @@
         labels: ["Sudah", "Belum"],
         theme: {
           monochrome: {
-            enabled: true
+            enabled: false
           }
         },
         plotOptions: {
