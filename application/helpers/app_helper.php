@@ -123,8 +123,12 @@ if(!function_exists('setup_get_vaksin')) {
 		$ci->db->limit(1);
 		$query = $ci->db->get('vaksinasi'); 
 	  	$row = $query->first_row();
-	 
-       return $row->dosis;
+		if($row){
+			$dos = $row->dosis;
+		}else {
+			$dos = "Belum";
+		}
+       return $dos;
 
 	   
 	}
