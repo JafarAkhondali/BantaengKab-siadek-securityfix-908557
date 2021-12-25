@@ -99,7 +99,7 @@ jQuery(document).ready(domo);
 
                             <div class="col-sm-3">
                                 <select  class="form-control chosen chosen-select-deselect" name="status" id="status" data-placeholder="PILIH Status" onchange="submit()">
-                                  <option value="0"></option>
+                                  
                                     <option 
                                     <?php if ('Sudah' == $this->input->get('status')) { ?>selected="selected"<?php } ?>
                                     value="Sudah">Sudah</option>
