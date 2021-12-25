@@ -96,9 +96,9 @@ jQuery(document).ready(domo);
                                 <small class="info help-block">
                                 </small>
                             </div>
-                            
-                           
-                        </div>
+
+
+                                                   </div>
                   </div>
 
                   <div class="table-responsive"> 
@@ -112,7 +112,6 @@ jQuery(document).ready(domo);
                            <th style="text-align:center">Nama</th>
                            <th style="text-align:center">Tanggal Lahir</th>
                            <th style="text-align:center">Jenis Kelamin</th>
-                           <th style="text-align:center">Alamat</th>
                            <th style="text-align:center">Dosis</th>
                            <th style="text-align:center" width="7%">Action</th>
                         </tr>
@@ -127,10 +126,10 @@ jQuery(document).ready(domo);
                            
                            <td><?php echo substr($vaksinasi->nik,0,6);?>******* </td> 
                            <td><?= _ent($vaksinasi->nama); ?></td> 
-                           <td><?= _ent($vaksinasi->tgl_lahir); ?></td> 
+                           <td style="text-align:center"><?php $date_create = date_create($vaksinasi->tgl_lahir); echo date_format($date_create,"d/m/Y"); ?></td>
                            <td><?= _ent($vaksinasi->jenis_kelamin); ?></td> 
-                           <td><?= _ent($vaksinasi->alamat); ?></td> 
-                           <td><?php $dosis = setup_get_vaksin($vaksinasi->nik); echo $dosis;   ?></td>
+                           <td><?= _ent($vaksinasi->dosis); ?></td>
+                           
                            <td width="200">
                               <?php is_allowed('vaksinasi_view', function() use ($vaksinasi){?>
                               <a href="<?= site_url('vaksinasi/view/' . $vaksinasi->id); ?>" title="Lihat" class="label-default"><i class="fa fa-newspaper-o"></i> 
