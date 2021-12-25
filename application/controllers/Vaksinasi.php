@@ -266,7 +266,8 @@ class Vaksinasi extends Admin
 		$this->is_allowed('vaksinasi_view');
 
 		$this->data['vaksinasi'] = $this->model_vaksinasi->join_avaiable()->filter_avaiable()->find($id);
-
+		$this->data['vaksinasik'] = "ada";
+		return $this->data;
 		$this->template->title('Vaksinasi Detail');
 		$this->render('modul/vaksinasi/vaksinasi_view', $this->data);
 	}
