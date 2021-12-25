@@ -39,6 +39,8 @@ class Model_vaksinasi extends MY_Model {
 		} else {
 			$status = 'Sudah';
 		}
+
+		
 		
 		
 
@@ -56,9 +58,15 @@ class Model_vaksinasi extends MY_Model {
 	        $where = '('.$where.')';
         } else {
         	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' AND view_vaksinasi.dosis='$status'  )";
-        }
+		}
+		
+		$now = date('Y-m-d');
+		$date = date_create($now);
+		date_add($date, date_interval_create_from_date_string('-12 year'));
+		$range = date_format($date, 'Y-m-d');
 
 		$this->join_avaiable()->filter_avaiable();
+		$this->db->where('tgl_lahir <=', $range);
         $this->db->where($where);
 		$query = $this->db->get($this->table_name);
 
@@ -106,7 +114,13 @@ class Model_vaksinasi extends MY_Model {
         	$this->db->select($select_field);
         }
 		
+		$now = date('Y-m-d');
+		$date = date_create($now);
+		date_add($date, date_interval_create_from_date_string('-12 year'));
+		$range = date_format($date, 'Y-m-d');
+
 		$this->join_avaiable()->filter_avaiable();
+		$this->db->where('tgl_lahir <=', $range);
         $this->db->where($where);
         $this->db->limit($limit, $offset);
         $this->db->order_by('view_vaksinasi.'.$this->primary_key, "DESC");
