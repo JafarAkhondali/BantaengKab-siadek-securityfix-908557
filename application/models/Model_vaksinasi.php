@@ -46,16 +46,16 @@ class Model_vaksinasi extends MY_Model {
         if (empty($field)) {
 	        foreach ($this->field_search as $field) {
 	            if ($iterasi == 1) {
-	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%'  ";
+	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%'  AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' ";
 	            } else {
-	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' ";
 	            }
 	            $iterasi++;
 	        }
 
 	        $where = '('.$where.')';
         } else {
-        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%'  )";
+        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%'  )";
         }
 
 		$this->join_avaiable()->filter_avaiable();
@@ -90,16 +90,16 @@ class Model_vaksinasi extends MY_Model {
         if (empty($field)) {
 	        foreach ($this->field_search as $field) {
 	            if ($iterasi == 1) {
-	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' ";
 	            } else {
-	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%' ";
 	            }
 	            $iterasi++;
 	        }
 
 	        $where = '('.$where.')';
         } else {
-        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%')";
+        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' AND view_vaksinasi.kd_wilayah LIKE '%" . $kd_wilayah . "%')";
         }
 
         if (is_array($select_field) AND count($select_field)) {
