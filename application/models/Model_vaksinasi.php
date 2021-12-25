@@ -5,7 +5,7 @@ class Model_vaksinasi extends MY_Model {
 
 	private $primary_key 	= 'id';
 	private $table_name 	= 'view_vaksinasi';
-	private $field_search 	= ['nik', 'no_kk', 'nama', 'tgl_lahir', 'jenis_kelamin', 'alamat', 'nama_ayah', 'Nama_Ibu', 'agama', 'verifikasi', 'golongan_dara'];
+	private $field_search 	= ['nik', 'no_kk', 'nama', 'tgl_lahir', 'jenis_kelamin', 'alamat', 'nama_ayah', 'Nama_Ibu', 'agama', 'verifikasi'];
 
 	public function __construct()
 	{
