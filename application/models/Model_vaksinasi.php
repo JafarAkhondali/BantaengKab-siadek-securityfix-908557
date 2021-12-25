@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Model_vaksinasi extends MY_Model {
 
 	private $primary_key 	= 'id';
-	private $table_name 	= 'vaksinasi';
-	private $field_search 	= ['dosis', 'jenis_vaksin', 'faskes', 'tiket', 'tanggal'];
+	private $table_name 	= 'view_vaksinasi';
+	private $field_search 	= ['nik', 'no_kk', 'nama', 'tgl_lahir', 'jenis_kelamin', 'alamat', 'nama_ayah', 'Nama_Ibu', 'agama', 'verifikasi', 'golongan_dara'];
 
 	public function __construct()
 	{
@@ -29,16 +29,16 @@ class Model_vaksinasi extends MY_Model {
         if (empty($field)) {
 	        foreach ($this->field_search as $field) {
 	            if ($iterasi == 1) {
-	                $where .= "vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
 	            } else {
-	                $where .= "OR " . "vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
 	            }
 	            $iterasi++;
 	        }
 
 	        $where = '('.$where.')';
         } else {
-        	$where .= "(" . "vaksinasi.".$field . " LIKE '%" . $q . "%' )";
+        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' )";
         }
 
 		$this->join_avaiable()->filter_avaiable();
@@ -59,16 +59,16 @@ class Model_vaksinasi extends MY_Model {
         if (empty($field)) {
 	        foreach ($this->field_search as $field) {
 	            if ($iterasi == 1) {
-	                $where .= "vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
 	            } else {
-	                $where .= "OR " . "vaksinasi.".$field . " LIKE '%" . $q . "%' ";
+	                $where .= "OR " . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' ";
 	            }
 	            $iterasi++;
 	        }
 
 	        $where = '('.$where.')';
         } else {
-        	$where .= "(" . "vaksinasi.".$field . " LIKE '%" . $q . "%' )";
+        	$where .= "(" . "view_vaksinasi.".$field . " LIKE '%" . $q . "%' )";
         }
 
         if (is_array($select_field) AND count($select_field)) {
@@ -78,7 +78,7 @@ class Model_vaksinasi extends MY_Model {
 		$this->join_avaiable()->filter_avaiable();
         $this->db->where($where);
         $this->db->limit($limit, $offset);
-        $this->db->order_by('vaksinasi.'.$this->primary_key, "DESC");
+        $this->db->order_by('view_vaksinasi.'.$this->primary_key, "DESC");
 		$query = $this->db->get($this->table_name);
 
 		return $query->result();
@@ -96,5 +96,5 @@ class Model_vaksinasi extends MY_Model {
 
 }
 
-/* End of file Model_vaksinasi.php */
-/* Location: ./application/models/Model_vaksinasi.php */
+/* End of file Model_view_vaksinasi.php */
+/* Location: ./application/models/Model_view_vaksinasi.php */

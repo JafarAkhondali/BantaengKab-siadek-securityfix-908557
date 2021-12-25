@@ -17,7 +17,6 @@ class Vaksinasi extends Admin
 		parent::__construct();
 
 		$this->load->model('model_vaksinasi');
-		$this->load->model('model_penduduk_real');
 	}
 
 	/**
@@ -33,12 +32,12 @@ class Vaksinasi extends Admin
 		$field 	= $this->input->get('f');
 
 
-		$this->data['vaksinasis'] = $this->model_penduduk_real->get($filter, $field, $this->limit_page, $offset);
-		$this->data['vaksinasi_counts'] = $this->model_penduduk_real->count_all($filter, $field);
+		$this->data['vaksinasis'] = $this->model_vaksinasi->get($filter, $field, $this->limit_page, $offset);
+		$this->data['vaksinasi_counts'] = $this->model_vaksinasi->count_all($filter, $field);
 
 		$config = [
 			'base_url'     => 'vaksinasi/index/',
-			'total_rows'   => $this->model_penduduk_real->count_all($filter, $field),
+			'total_rows'   => $this->model_vaksinasi->count_all($filter, $field),
 			'per_page'     => $this->limit_page,
 			'uri_segment'  => 3,
 		];
