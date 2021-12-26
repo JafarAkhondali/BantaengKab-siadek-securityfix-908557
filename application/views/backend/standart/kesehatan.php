@@ -135,8 +135,10 @@
 <script src="<?= BASE_ASSET; ?>admin-lte/plugins/morris/morris.min.js"></script>
 <script>
  var options = {
-          series: [<?php echo db_get_all_data_count('view_vaksinasi',"dosis ='Sudah'");  ?>, 
-          <?php echo db_get_all_data_count('view_vaksinasi',"dosis ='belum'");  ?>],
+          series: [
+                    <?php echo $vak_sudah;  ?>, 
+                    <?php echo $vak_belum;  ?>
+                  ],
           chart: {
           width: '100%',
           type: 'pie',
