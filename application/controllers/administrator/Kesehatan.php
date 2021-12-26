@@ -24,14 +24,14 @@ class Kesehatan extends Admin
      $this->db->select('*');
      $this->db->where('dosis','sudah');
      $this->db->where('tgl_lahir <=',$range);
-     $this->db->where('kd_wilayah',$kd_wilayah);
+     $this->db->like('kd_wilayah',$kd_wilayah);
      $query = $this->db->get('view_vaksinasi');
 
 
      $this->db->select('*');
      $this->db->where('dosis','belum');
      $this->db->where('tgl_lahir <=',$range);
-     $this->db->where('kd_wilayah',$kd_wilayah);
+     $this->db->like('kd_wilayah',$kd_wilayah);
      $query2 = $this->db->get('view_vaksinasi');
 
      $data['vak_sudah'] = $query->num_rows();;
