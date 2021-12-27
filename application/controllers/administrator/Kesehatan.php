@@ -20,7 +20,15 @@ class Kesehatan extends Admin
      $date = date_create($now);
      date_add($date, date_interval_create_from_date_string('-12 year'));
      $range = date_format($date, 'Y-m-d'); 
-     $kd_wilayah = get_user_data('kd_wilayah');
+
+     $username = get_user_data('id'); 
+        $user_gr = get_user_group($username);
+        if($user_gr == '1' || $user_gr == '9' || $user_gr == '7'){
+			$kd_wilayah = $this->input->get('kd_wilayah');
+        }else{
+            $kd_wilayah = get_user_data('kd_wilayah');
+		}
+
      $this->db->select('*');
      $this->db->where('dosis','sudah');
      $this->db->where('tgl_lahir <=',$range);
