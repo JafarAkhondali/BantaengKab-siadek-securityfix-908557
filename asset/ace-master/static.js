@@ -30,6 +30,11 @@ if (allowSave)
     console.warn("writing files from browser is enabled");
 
 http.createServer(function(req, res) {
+    if (path.normalize(unescape(url.parse(req.url).pathname)) !== unescape(url.parse(req.url).pathname)) {
+        res.statusCode = 403;
+        res.end();
+        return;
+    }
     var uri = unescape(url.parse(req.url).pathname);
     var filename = path.join(process.cwd(), uri);
 
